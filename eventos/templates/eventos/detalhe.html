@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <p>{{ evento.titulo }}</p>
+        <p>{{ evento.inicio }}</p>
+        <p> {{ evento.local.nome }}</p>
+        <p> {{evento.vagas_restantes}}</p>
+        {% for atividade in evento.atividades.all %}
+            <li>{{ atividade.nome }} - {{ atividade.horario }}</li>
+        {% empty %}
+            <li>Nenhuma atividade agendada para este evento.</li>
+        {% endfor %}
+        {%if evento.relatorio %}
+            {{ evento.relatorio.descricao }}
+        {% else %}
+            <p><em>Este evento ainda não possui um relatório publicado.</em></p>
+        {%endif%}
+    </main>
+</body>
+</html>

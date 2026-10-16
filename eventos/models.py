@@ -36,7 +36,7 @@ class Evento(models.Model):
     def __str__(self):
         return self.titulo
     def vagas_restantes(self):
-        return self.capacidade - self.inscricoes.count()
+        return self.local.capacidade - self.inscricoes.count()
 
 class Atividade(models.Model):
     titulo = models.CharField(max_length=250)
