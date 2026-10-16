@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{local.nome}}</p>
+    <p>{{local.capacidade}}</p>
+    {%for evento in eventos%}
+        <a href="{%url 'eventos:detalhe' evento.id %}">{{evento.titulo}}</a>
+    {% empty %}
+        <p>Não há eventos para esse local</p>
+    {% endfor %}
+</body>
+</html>
